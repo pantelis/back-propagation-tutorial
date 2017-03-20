@@ -17,10 +17,10 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
-
+import os
+import sys
+#sys.path.insert(0, os.path.abspath('.'))
+sys.path.append(os.path.abspath('sphinx-extensions'))
 
 # -- General configuration ------------------------------------------------
 
@@ -31,11 +31,15 @@
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
+
 extensions = ['sphinx.ext.intersphinx',
     'sphinx.ext.todo',
     'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
-    'sphinx.ext.viewcode']
+    'sphinx.ext.viewcode',
+    'sphinx.ext.autosummary',
+    'numpydoc',
+    'mathmacro']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -108,24 +112,36 @@ htmlhelp_basename = 'Backpropagationdoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
+latex_engine = 'xelatex'
 
 latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
     #
-    # 'papersize': 'letterpaper',
+    'papersize': 'letterpaper',
 
     # The font size ('10pt', '11pt' or '12pt').
     #
-    # 'pointsize': '10pt',
+    'pointsize': '11pt',
 
     # Additional stuff for the LaTeX preamble.
     #
-    # 'preamble': '',
-
+    'preamble': ''' \
+        \\hypersetup{unicode=true}
+        \\usepackage{tensor}
+        \\usepackage{amstext}  % extended text
+        \\usepackage{booktabs} % book-quality tables
+        \\usepackage{units}    % non-stacked fractions and better unit spacing
+        \\usepackage{multicol} % multiple column layout facilities
+        \\usepackage{lipsum}   % filler text
+        \\usepackage{fancyvrb} % extended verbatim environments
+        \\usepackage{placeins}
+     ''',
     # Latex figure (float) alignment
     #
-    # 'figure_align': 'htbp',
+    'figure_align': 'htbp'
 }
+
+latex_show_urls = 'footnote'
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,

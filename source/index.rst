@@ -9,7 +9,10 @@ Welcome to Backpropagation's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-
+   
+   replacements.rst
+   notation-linear-algebra.rst
+.. include:: ../../cs224n-winter17-notes/review-differential-calculus.rst
 
 
 Indices and tables
