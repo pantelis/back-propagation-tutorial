@@ -12,7 +12,7 @@ Welcome to Backpropagation's documentation!
    
    replacements.rst
    notation-linear-algebra.rst
-.. include:: ../../cs224n-winter17-notes/review-differential-calculus.rst
+   review-differential-calculus.rst
 
 
 Indices and tables
